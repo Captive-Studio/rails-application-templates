@@ -29,4 +29,4 @@ create_file 'config/initializers/cors.rb', <<~RUBY
 RUBY
 
 # Configure rswag
-rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/rswag.rb
+system('rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/rswag.rb')
