@@ -1,7 +1,9 @@
 # api.rb
 
 # Ajouter la gem captive-api
-gem 'captive-api'
+unless File.read('Gemfile').include?("captive-api")
+  gem 'captive-api'
+end
 
 # Générer un Controller API::V1::BaseController héritant de Captive::API::ApplicationController
 generate 'controller', 'API::V1::Base', '--skip-assets', '--skip-helper'
