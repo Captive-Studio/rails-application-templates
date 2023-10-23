@@ -6,6 +6,8 @@
 |------|--------------|----------|
 | database_uuid | Active l'extension UUID sur la base de donnée (PostgreSQL) afin de remplacer les ID (bigint) en UUID | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/database_uuid.rb` |
 | validation_telephone | Ajoute une validation sur le telephone | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/validation_telephone.rb` |
+| rswag | Configure rswag | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/rswag.rb` |
+| api | Configure l'api avec rswag | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/api.rb` |
 
 ## Rules
 
