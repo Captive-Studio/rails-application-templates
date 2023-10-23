@@ -18,7 +18,9 @@ route <<~RUBY
 RUBY
 
 # Ajouter la gem rack-cors
-gem 'rack-cors'
+unless File.read('Gemfile').include?("rack-cors")
+  gem 'rack-cors'
+end
 
 # Créer le fichier d'initializers pour Cors
 create_file 'config/initializers/cors.rb', <<~RUBY
