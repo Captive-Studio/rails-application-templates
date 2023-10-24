@@ -1,7 +1,9 @@
 # api.rb
 
 # Ajouter la gem captive-api
-gem 'captive-api'
+unless File.read('Gemfile').include?("captive-api")
+  gem 'captive-api'
+end
 
 # Générer un Controller API::V1::BaseController héritant de Captive::API::ApplicationController
 generate 'controller', 'API::V1::Base', '--skip-assets', '--skip-helper'
@@ -16,7 +18,9 @@ route <<~RUBY
 RUBY
 
 # Ajouter la gem rack-cors
-gem 'rack-cors'
+unless File.read('Gemfile').include?("rack-cors")
+  gem 'rack-cors'
+end
 
 # Créer le fichier d'initializers pour Cors
 create_file 'config/initializers/cors.rb', <<~RUBY
@@ -29,4 +33,4 @@ create_file 'config/initializers/cors.rb', <<~RUBY
 RUBY
 
 # Configure rswag
-rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/rswag.rb
+system('rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/rswag.rb')
