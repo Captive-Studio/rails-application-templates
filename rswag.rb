@@ -1,8 +1,13 @@
 # rswag_template.rb
 
 # Ajouter les gems rswag-api, rswag-ui
-gem 'rswag-api'
-gem 'rswag-ui'
+gems = %w(rswag-api rswag-ui)
+
+gems.each do |gem|
+  unless File.read('Gemfile').include?("#{gem}")
+    gem "#{gem}"
+  end
+end
 
 gem_group :development, :test do
   gem 'rspec-rails'
