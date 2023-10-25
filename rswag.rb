@@ -9,9 +9,14 @@ gems.each do |gem|
   end
 end
 
+gems_dev_test = %w(rspec-rails rswag-specs)
+
 gem_group :development, :test do
-  gem 'rspec-rails'
-  gem 'rswag-specs'
+  gems_dev_test.each do |gem|
+    unless File.read('Gemfile').include?("#{gem}")
+      gem "#{gem}"
+    end
+  end
 end
 
 # Après l'installation des gemmes, exécuter les commandes pour installer RSWAG
