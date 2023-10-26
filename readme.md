@@ -9,6 +9,30 @@
 | rswag | Configure rswag | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/rswag.rb` |
 | api | Configure l'api avec rswag | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/api.rb` |
 
+Vous pouvez simplifier l'usage des templates en ajoutant la fonction suivante dans votre fichier ` ~/.zshrc`
+
+```bash
+run_rails_template() {
+  if [ -z "$1" ]; then
+    echo "Usage: run_rails_template PARAMETRE1"
+    return 1
+  fi
+
+  local PARAMETRE1="$1"
+  rails_command="rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/${PARAMETRE1}.rb"
+
+  eval "$rails_command"
+}
+```
+
+Cela permettra d'utiliser un template de la manière suivante : 
+
+```bash
+$ run_rails_template validation_telephone
+  apply  https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/validation_telephone.rb
+bin/rails aborted! pays par défaut (par exemple, 'FR' pour la France)? 
+```
+
 ## Rules
 
 - chaque template doit être le plus unitaire possible
