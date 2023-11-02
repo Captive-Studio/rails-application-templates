@@ -26,8 +26,8 @@ after_bundle do
     end
   RUBY
 
-  puts "La valeur de “config.dsn = 'XXXXXX'” se trouve dans Sentry. Project > Settings > Client keys"
-  puts "- Configurer la variable d’environnement `SENTRY_ENV` (en fonction de l’environnement donnée)
+  say "La valeur de “config.dsn = 'XXXXXX'” se trouve dans Sentry. Project > Settings > Client keys"
+  say "- Configurer la variable d’environnement `SENTRY_ENV` (en fonction de l’environnement donnée)
     - `SENTRY_ENV=staging`
     - `SENTRY_ENV=production`
     - Configurer la variable d’environnement `SENTRY_TRACES_RATE` en fonction de l’utilisation de la production"
@@ -65,7 +65,7 @@ after_bundle do
       end
     end
   RUBY
-  puts "⚠️ Changer current_utilisateur et current_administrateur en fonction du contexte de votre application"
+  say "⚠️ Changer current_utilisateur et current_administrateur en fonction du contexte de votre application", :yellow
 end
 
 # app/controllers/application_controller.rb

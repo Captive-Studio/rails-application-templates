@@ -41,3 +41,5 @@ bin/rails aborted! pays par défaut (par exemple, 'FR' pour la France)?
 
 - chaque template doit être le plus unitaire possible
 - les templates doivent être écris en `snake_case`
+- Remplacer les `puts` par [say](https://www.rubydoc.info/github/wycats/thor/Thor%2FShell%2FBasic:say)
+    *Cela permet notamment de colorer le message*
