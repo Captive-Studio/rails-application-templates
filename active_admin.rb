@@ -14,7 +14,7 @@ generate 'cancan:ability'
 
 # Configurations Active Admin
 resource_admin_active_admin = ask('Comment souhaitez-vous appeler votre resource user active admin ? (ex: Utilisateur)')
-generate "'active_admin:install', #{resource_admin_active_admin}"
+generate "'active_admin:install' #{resource_admin_active_admin}"
 
 # Rake task pour les migrations
 rake 'db:migrate'
