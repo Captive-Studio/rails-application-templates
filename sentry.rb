@@ -22,7 +22,7 @@ after_bundle do
       config.environment = ENV['SENTRY_ENV'] || Rails.env
       config.enabled_environments = %w(staging production)
 
-      config.traces_sample_rate = ENV['SENTRY_TRACES_RATE'] || 0.1
+      config.traces_sample_rate = ENV.fetch("SENTRY_TRACES_RATE", 0.1).to_f
     end
   RUBY
 
