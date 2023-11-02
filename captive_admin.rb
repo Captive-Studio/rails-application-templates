@@ -2,14 +2,14 @@
 installation_devise = yes?('Souhaitez vous installer et configurer Devise ?')
 
 if installation_devise
-  system('rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/creation-template-captive-admin/devise.rb')
+  system('rails app:template LOCATION=rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/devise.rb')
 end
 
 # Active admin
 installation_active_admin = yes?('Souhaitez vous installer et configurer Active admin ?')
 
 if installation_active_admin
-  system('rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/creation-template-captive-admin/active_admin.rb')
+  system('rails app:template LOCATION=rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/active_admin.rb')
 end
 
 #Captive admin
