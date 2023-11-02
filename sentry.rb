@@ -5,16 +5,16 @@
 gems = %w(sentry-ruby sentry-rails sentry-sidekiq)
 
 gems.each do |gem|
-  unless File.read('Gemfile').include?("#{gem}")
+  unless File.read("Gemfile").include?("#{gem}")
     gem "#{gem}"
   end
 end
 
-run 'bundle install'
+run "bundle install"
 
 # config/initializers/sentry.rb
 after_bundle do
-  create_file 'config/initializers/sentry.rb', <<~RUBY
+  create_file "config/initializers/sentry.rb", <<~RUBY
     Sentry.init do |config|
       config.dsn = ENV['SENTRY_DSN']
       config.breadcrumbs_logger = [:active_support_logger, :http_logger, :sentry_logger]
@@ -35,7 +35,7 @@ end
 
 # app/controllers/concerns/sentry_context_concern.rb
 after_bundle do
-  create_file 'app/controllers/concerns/sentry_context_concern.rb', <<~RUBY
+  create_file "app/controllers/concerns/sentry_context_concern.rb", <<~RUBY
 
     module SentryContextConcern
       extend ActiveSupport::Concern
@@ -65,21 +65,23 @@ after_bundle do
       end
     end
   RUBY
-  say "⚠️ Changer current_utilisateur et current_administrateur en fonction du contexte de votre application", :yellow
+  say "⚠️ Changer current_utilisateur et current_administrateur en fonction du contexte de votre application",
+      :yellow
 end
 
 # app/controllers/application_controller.rb
 after_bundle do
-  inject_into_file 'app/controllers/application_controller.rb', after: "class ApplicationController < ActionController::Base\n" do
-    <<~RUBY
+  inject_into_file "app/controllers/application_controller.rb",
+                   after: "class ApplicationController < ActionController::Base\n" do
+                     <<~RUBY
       include SentryContextConcern
     RUBY
-  end
+                   end
 end
 
 # config/initializers/active_admin.rb
 after_bundle do
-  inject_into_file 'config/initializers/active_admin.rb' do
+  inject_into_file "config/initializers/active_admin.rb" do
     <<~RUBY
       def set_sentry_context
         ActiveAdmin::ResourceDSL.send(:include, SentryContextConcern)
@@ -87,9 +89,10 @@ after_bundle do
     RUBY
   end
 
-  inject_into_file 'config/initializers/active_admin.rb', after: "ActiveAdmin.setup do |config|\n" do
-    <<~RUBY
+  inject_into_file "config/initializers/active_admin.rb",
+                   after: "ActiveAdmin.setup do |config|\n" do
+                     <<~RUBY
       config.before_action :set_sentry_context
     RUBY
-  end
+                   end
 end

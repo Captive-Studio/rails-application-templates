@@ -4,7 +4,7 @@
 gems = %w(rswag-api rswag-ui)
 
 gems.each do |gem|
-  unless File.read('Gemfile').include?("#{gem}")
+  unless File.read("Gemfile").include?("#{gem}")
     gem "#{gem}"
   end
 end
@@ -13,7 +13,7 @@ gems_dev_test = %w(rspec-rails rswag-specs)
 
 gem_group :development, :test do
   gems_dev_test.each do |gem|
-    unless File.read('Gemfile').include?("#{gem}")
+    unless File.read("Gemfile").include?("#{gem}")
       gem "#{gem}"
     end
   end
@@ -21,9 +21,9 @@ end
 
 # Après l'installation des gemmes, exécuter les commandes pour installer RSWAG
 after_bundle do
-  generate 'rswag:api:install'
-  generate 'rswag:ui:install'
-  system('RAILS_ENV=test rails g rswag:specs:install')
+  generate "rswag:api:install"
+  generate "rswag:ui:install"
+  system("RAILS_ENV=test rails g rswag:specs:install")
 end
 
 # Définir les routes pour la documentation
@@ -32,7 +32,7 @@ route "mount Rswag::Api::Engine => '/api-docs'"
 
 # Ajouter le code au rails_helper.rb
 after_bundle do
-  inject_into_file 'spec/rails_helper.rb', after: "RSpec.configure do |config|\n" do
+  inject_into_file "spec/rails_helper.rb", after: "RSpec.configure do |config|\n" do
     <<~RUBY
       config.after(:each) do |example|
         if example.metadata[:type].eql?(:request) && response&.body.present?

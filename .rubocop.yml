@@ -1,0 +1,6 @@
+inherit_gem:
+  rubocop-config-captive:
+    - config/default.yml
+
+Layout/LineLength:
+  Enabled: false
