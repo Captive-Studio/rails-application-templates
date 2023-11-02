@@ -43,3 +43,13 @@ bin/rails aborted! pays par défaut (par exemple, 'FR' pour la France)?
 - les templates doivent être écris en `snake_case`
 - Remplacer les `puts` par [say](https://www.rubydoc.info/github/wycats/thor/Thor%2FShell%2FBasic:say)
     *Cela permet notamment de colorer le message*
+- Les questions (`ask(string)`) doivent commencer avec un verbe à l'infinitif
+- Les questions (`ask(string)`) doivent comporter la valeur par défaut dans la phrase entre croché
+
+```ruby
+# BAD
+ask("Quel est votre pays ?")
+
+# GOOD
+ask("Entrer votre pays [FRANCE]")
+```
