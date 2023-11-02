@@ -28,4 +28,4 @@ gsub_file 'app/assets/stylesheets/active_admin.scss', '@import "active_admin/mix
 gsub_file 'app/assets/stylesheets/active_admin.scss', '@import "active_admin/base";', '@import "captive-admin/base";'
 
 # Message final
-say 'Votre application Rails a été créée avec succès et configurée avec Devise, Devise-i18n, CancanCan, Active Admin et Captive Admin.', :green
+say 'Votre application Rails a été créée avec succès et configurée avec Captive Admin et Captive Admin theme.', :green

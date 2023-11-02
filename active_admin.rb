@@ -25,3 +25,5 @@ gsub_file 'config/initializers/active_admin.rb', /# config.maximum_association_f
 
 # Configuration activeadmin_addons
 generate "activeadmin_addons:install"
+# Message final
+say 'Votre application Rails a été créée avec succès et configurée avec Cancancan, Kaminari-i18n, Activeadmin, Activeadmin Addons.', :green
