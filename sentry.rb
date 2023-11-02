@@ -80,12 +80,16 @@ end
 # config/initializers/active_admin.rb
 after_bundle do
   inject_into_file 'config/initializers/active_admin.rb' do
-    def set_sentry_context
-      ActiveAdmin::ResourceDSL.send(:include, SentryContextConcern)
-    end
+    <<~RUBY
+      def set_sentry_context
+        ActiveAdmin::ResourceDSL.send(:include, SentryContextConcern)
+      end
+    RUBY
   end
 
   inject_into_file 'config/initializers/active_admin.rb', after: "ActiveAdmin.setup do |config|\n" do
-    config.before_action :set_sentry_context
+    <<~RUBY
+      config.before_action :set_sentry_context
+    RUBY
   end
 end
