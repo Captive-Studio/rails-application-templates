@@ -10,7 +10,7 @@ run "bundle install"
 # Configure Devise
 generate "devise:install"
 devise_model_name = ask("Entrer le nom du modèle Devise [User] ?")
-generate "devise", devise_model_name
+generate "devise", devise_model_name&.classify
 rake "db:migrate"
 
 # Demander le nom du projet
