@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.1.1)
+    activesupport (7.1.2)
       base64
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
@@ -46,16 +46,20 @@ GEM
       parser (>= 3.2.1.0)
     rubocop-capybara (2.18.0)
       rubocop (~> 1.41)
-    rubocop-config-captive (1.8.0)
+    rubocop-config-captive (1.9.1)
       rubocop (~> 1.51.0)
       rubocop-capybara (~> 2.18.0)
       rubocop-factory_bot (~> 2.23.1)
+      rubocop-magic_numbers (~> 0.4.0)
       rubocop-performance (~> 1.17.1)
       rubocop-rails (~> 2.18.0)
       rubocop-rake (~> 0.6.0)
       rubocop-rspec (~> 2.22.0)
     rubocop-factory_bot (2.23.1)
       rubocop (~> 1.33)
+    rubocop-magic_numbers (0.4.0)
+      parser
+      rubocop
     rubocop-performance (1.17.1)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
@@ -80,7 +84,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  rubocop-config-captive (~> 1.8.0)
+  rubocop-config-captive (~> 1.9.0)
 
 BUNDLED WITH
    2.4.21
