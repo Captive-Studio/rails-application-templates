@@ -27,8 +27,8 @@ gsub_file "config/initializers/active_admin.rb",
 
 # Customise la phrase du footer pour avoir : Créé sur mesure par Captive
 gsub_file "config/initializers/active_admin.rb",
-/# config.footer = 'my custom footer text'/,
-"config.footer = 'Créé sur mesure par <a href=\"https://captive.fr\" target=\"_blank\">Captive</a>'\n
+          /# config.footer = 'my custom footer text'/,
+          "config.footer = 'Créé sur mesure par <a href=\"https://captive.fr\" target=\"_blank\">Captive</a>'\n
     .html_safe"
 
 # Configuration activeadmin_addons

@@ -12,7 +12,8 @@ run "bundle install"
 
 run "bundle exec guard init"
 
-create_file 'Guardfile' do <<~RUBY
+create_file "Guardfile" do
+  <<~RUBY
   # frozen_string_literal: true
 
   group :red_green_refactor, halt_on_fail: true do
