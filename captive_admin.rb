@@ -1,5 +1,5 @@
 # Devise
-installation_devise = yes?("Souhaitez vous installer et configurer Devise ?")
+installation_devise = yes?("Souhaitez vous installer et configurer Devise ? [y/N]")
 
 if installation_devise
   DEVISE_TEMPLATE = "https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/devise.rb".freeze
@@ -7,7 +7,7 @@ if installation_devise
 end
 
 # Active admin
-installation_active_admin = yes?("Souhaitez vous installer et configurer Active admin ?")
+installation_active_admin = yes?("Souhaitez vous installer et configurer Active admin ? [y/N]")
 
 if installation_active_admin
   ACTIVE_ADMIN_TEMPLATE = "https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/active_admin.rb".freeze

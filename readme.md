@@ -46,7 +46,6 @@ bin/rails aborted! pays par défaut (par exemple, 'FR' pour la France)?
     *Cela permet notamment de colorer le message*
 - Les questions (`ask(string)`) doivent commencer avec un verbe à l'infinitif
 - Les questions (`ask(string)`) doivent comporter la valeur par défaut dans la phrase entre croché
-
 ```ruby
 # BAD
 ask("Quel est votre pays ?")
@@ -54,3 +53,6 @@ ask("Quel est votre pays ?")
 # GOOD
 ask("Entrer votre pays [FRANCE]")
 ```
+- Les questions oui/non (`yes?(string)`) doit comporter la valeur par défaut dans la phrase entre croché
+  `Aimer vous les brocolis ? [Y/n]`
+
