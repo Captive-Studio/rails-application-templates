@@ -49,10 +49,10 @@ bin/rails aborted! pays par défaut (par exemple, 'FR' pour la France)?
 - Les questions (`ask(string)`) doivent comporter la valeur par défaut dans la phrase entre croché
 ```ruby
 # BAD
-ask("Quel est votre pays ?")
+ask("Quel est votre pays ?", default: "FRANCE")
 
 # GOOD
-ask("Entrer votre pays [FRANCE]")
+ask("Entrer votre pays [FRANCE]", default: "FRANCE")
 ```
 - Les questions oui/non (`yes?(string)`) doit comporter la valeur par défaut dans la phrase entre croché
   `Aimez-vous les brocolis ? [Y/n]`

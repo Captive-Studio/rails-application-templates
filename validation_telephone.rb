@@ -5,8 +5,7 @@ unless File.read("Gemfile").include?("phonelib")
 end
 
 # Demandez à l'utilisateur de choisir le pays par défaut
-country_code = ask("Quel est le code pays par défaut (par exemple, 'FR' pour la France)?")
-country_code = "FR" if country_code.blank?
+country_code = ask("Quel est le code pays par défaut (par exemple, 'FR' pour la France) ? [FR]", default: "FR")
 
 # Générez un fichier initializer pour Phonelib avec le code pays par défaut
 initializer_code = <<~RUBY
