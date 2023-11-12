@@ -55,4 +55,13 @@ ask("Entrer votre pays [FRANCE]")
 ```
 - Les questions oui/non (`yes?(string)`) doit comporter la valeur par défaut dans la phrase entre croché
   `Aimer vous les brocolis ? [Y/n]`
+- Ne pas installer les gems en double sur le Gemfile
+```ruby
+gems = %w(devise devise-i18n)
 
+gems.each do |gem|
+  unless File.read("Gemfile").include?("#{gem}")
+    gem "#{gem}"
+  end
+end
+```
