@@ -15,7 +15,7 @@ if installation_active_admin
 end
 
 # Captive admin
-gems = %w(captive-admin captive-theme)
+gems = %w(captive-admin)
 
 gems.each do |gem|
   unless File.read("Gemfile").include?("#{gem}")
