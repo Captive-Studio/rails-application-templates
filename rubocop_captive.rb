@@ -8,6 +8,9 @@ gem_group :development, :test do
   end
 end
 
+# Installez les gems
+run "bundle install"
+
 after_bundle do
   rubocop_content = <<~EOF
   inherit_gem:
