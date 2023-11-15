@@ -1,9 +1,9 @@
 gems_dev_test = %w(rubocop-config-captive)
 
 gem_group :development, :test do
-  gems_dev_test.each do |gem|
-    unless File.read("Gemfile").include?("#{gem}")
-      gem "#{gem}"
+  gems_dev_test.each do |g|
+    unless File.read("Gemfile").include?("#{g}")
+      gem "#{g}"
     end
   end
 end
@@ -17,9 +17,9 @@ after_bundle do
 
   file ".rubocop.yml", rubocop_content
 
-  correction_erreur = no?("Souhaitez-vous lancer la correction d'erreur ? [Y/n]")
+  correction_erreur = yes?("Souhaitez-vous lancer la correction d'erreur ? [Y/n]")
 
-  if correction_erreur
+  if correction_erreur || correction_erreur.blank?
     run "bundle exec rubocop -A"
     run "gem install bundle-locker"
     run "bundle-locker ./Gemfile"
