@@ -54,3 +54,23 @@ after_bundle do
     RUBY
   end
 end
+
+git add: "."
+git commit: "➕ Ajoute la gem rswag"
+
+run "yarn add husky -D"
+run "yarn add lint-staged -D"
+run "npx husky add .husky/pre-commit \"npx lint-staged\""
+run "git add .husky/pre-commit"
+
+inject_into_file "package.json", after: "\"lint-staged\": {\n" do
+  <<~EOF
+    "spec/requests/**/*_spec.rb": [
+      "SWAGGER_DRY_RUN=0 rails rswag",
+      "git add swagger/**/*"
+    ]
+  EOF
+end
+
+git add: "."
+git commit: "🔧 Configure le pre-commit de documentation"
