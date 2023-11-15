@@ -1,11 +1,13 @@
 gems = %w(bullet)
 
 gems.each do |g|
-  unless File.read("Gemfile").include?("#{g}")
+  unless File.read("Gemfile").include?(g)
     gem_group :development, :test do
-      gem "#{g}"
+      gem g
     end
   end
+
+  run "bundle install"
 end
 
 inject_into_file "config/environments/development.rb", after: "Rails.application.configure do\n" do

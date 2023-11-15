@@ -1,8 +1,8 @@
 gems = %w(cancancan kaminari-i18n activeadmin activeadmin_addons)
 
-gems.each do |gem|
-  unless File.read("Gemfile").include?("#{gem}")
-    gem "#{gem}"
+gems.each do |g|
+  unless File.read("Gemfile").include?(g)
+    gem g
   end
 end
 

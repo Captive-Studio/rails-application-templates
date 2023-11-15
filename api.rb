@@ -3,6 +3,8 @@
 # Ajouter la gem captive-api
 unless File.read("Gemfile").include?("captive-api")
   gem "captive-api"
+
+  run "bundle install"
 end
 
 # Générer un Controller API::V1::BaseController héritant de Captive::API::ApplicationController
@@ -20,6 +22,8 @@ RUBY
 # Ajouter la gem rack-cors
 unless File.read("Gemfile").include?("rack-cors")
   gem "rack-cors"
+
+  run "bundle install"
 end
 
 # Créer le fichier d'initializers pour Cors

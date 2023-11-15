@@ -3,28 +3,28 @@
 # Ajouter les gems rswag-api, rswag-ui
 gems = %w(rswag-api rswag-ui)
 
-gems.each do |gem|
-  unless File.read("Gemfile").include?("#{gem}")
-    gem "#{gem}"
+gems.each do |g|
+  unless File.read("Gemfile").include?(g)
+    gem g
   end
 end
 
 gems_dev_test = %w(rspec-rails rswag-specs)
 
 gem_group :development, :test do
-  gems_dev_test.each do |gem|
-    unless File.read("Gemfile").include?("#{gem}")
-      gem "#{gem}"
+  gems_dev_test.each do |g|
+    unless File.read("Gemfile").include?(g)
+      gem g
     end
   end
 end
 
+run "bundle install"
+
 # Après l'installation des gemmes, exécuter les commandes pour installer RSWAG
-after_bundle do
-  generate "rswag:api:install"
-  generate "rswag:ui:install"
-  system("RAILS_ENV=test rails g rswag:specs:install")
-end
+generate "rswag:api:install"
+generate "rswag:ui:install"
+system("RAILS_ENV=test rails g rswag:specs:install")
 
 # Définir les routes pour la documentation
 route "mount Rswag::Ui::Engine => '/api-docs'"

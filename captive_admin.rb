@@ -15,15 +15,14 @@ if installation_active_admin
 end
 
 # Captive admin
-gems = %w(captive-admin)
+gem_name = "captive-admin"
 
-gems.each do |gem|
-  unless File.read("Gemfile").include?("#{gem}")
-    gem "#{gem}"
-  end
+unless File.read("Gemfile").include?(gem_name)
+  gem gem_name
+
+  # Installez les gems
+  run "bundle install"
 end
-# Installez les gems
-run "bundle install"
 
 # Modifier active_admin.scss
 gsub_file "app/assets/stylesheets/active_admin.scss",

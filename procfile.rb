@@ -1,11 +1,10 @@
-gems = %w(foreman)
+gem_name = "foreman"
 
-gem_group :development do
-  gems.each do |gem|
-    unless File.read("Gemfile").include?("#{gem}")
-      gem "#{gem}"
-    end
-  end
+unless File.read("Gemfile").include?(gem_name)
+  gem gem_name
+
+  # Installez les gems
+  run "bundle install"
 end
 
 # Vérifie si la gem Sidekiq est présente dans le Gemfile

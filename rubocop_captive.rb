@@ -1,15 +1,13 @@
-gems_dev_test = %w(rubocop-config-captive)
+gem_name = "rubocop-config-captive"
 
-gem_group :development, :test do
-  gems_dev_test.each do |g|
-    unless File.read("Gemfile").include?("#{g}")
-      gem "#{g}"
-    end
+unless File.read("Gemfile").include?(gem_name)
+  gem_group :development, :test do
+    gem gem_name
   end
-end
 
-# Installez les gems
-run "bundle install"
+  # Installez les gems
+  run "bundle install"
+end
 
 rubocop_content = <<~EOF
 inherit_gem:

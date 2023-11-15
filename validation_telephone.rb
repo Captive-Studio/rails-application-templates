@@ -1,6 +1,9 @@
-unless File.read("Gemfile").include?("phonelib")
-  # Ajoutez le gem Phonelib au Gemfile s'il n'est pas déjà présent
-  gem "phonelib"
+gem_name = "phonelib"
+
+unless File.read("Gemfile").include?(gem_name)
+  gem gem_name
+
+  # Installez les gems
   run "bundle install"
 end
 

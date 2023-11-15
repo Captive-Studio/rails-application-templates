@@ -63,9 +63,9 @@ ask("Entrer votre pays [FRANCE]", default: "FRANCE")
 ```ruby
 gems = %w(devise devise-i18n)
 
-gems.each do |gem|
-  unless File.read("Gemfile").include?("#{gem}")
-    gem "#{gem}"
+gems.each do |g|
+  unless File.read("Gemfile").include?(g)
+    gem g
   end
 end
 ```
