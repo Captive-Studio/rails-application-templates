@@ -15,6 +15,7 @@
 | guard | Configure guard| `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/guard.rb` |
 | environment | Configure l'application en Français, Anglais, ...| `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/environment.rb` |
 | procfile | Configure foreman et un procfile pour déployer sur Scalingo | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/procfile.rb` |
+| rubocop_captive | Configure le rubocop avec la config captive | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/rubocop_captive.rb` |
 
 Vous pouvez simplifier l'usage des templates en ajoutant la fonction suivante dans votre fichier ` ~/.zshrc`
 
