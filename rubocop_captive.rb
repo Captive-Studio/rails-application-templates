@@ -8,7 +8,7 @@ gem_group :development, :test do
   end
 end
 
-<<~EOF
+rubocop_content = <<~EOF
 inherit_gem:
   rubocop-config-captive:
     - config/default.yml
