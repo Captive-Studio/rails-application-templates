@@ -26,7 +26,7 @@ generate "rswag:api:install"
 generate "rswag:ui:install"
 system("RAILS_ENV=test rails g rswag:specs:install")
 
-unless File.read("Gemfile").include?("mount Rswag::")
+unless File.read("config/routes.rb").include?("mount Rswag::")
   # Définir les routes pour la documentation
   route "mount Rswag::Ui::Engine => '/api-docs'"
   route "mount Rswag::Api::Engine => '/api-docs'"
