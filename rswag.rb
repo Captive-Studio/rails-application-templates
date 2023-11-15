@@ -26,9 +26,11 @@ generate "rswag:api:install"
 generate "rswag:ui:install"
 system("RAILS_ENV=test rails g rswag:specs:install")
 
-# Définir les routes pour la documentation
-route "mount Rswag::Ui::Engine => '/api-docs'"
-route "mount Rswag::Api::Engine => '/api-docs'"
+unless File.read("Gemfile").include?("mount Rswag::")
+  # Définir les routes pour la documentation
+  route "mount Rswag::Ui::Engine => '/api-docs'"
+  route "mount Rswag::Api::Engine => '/api-docs'"
+end
 
 # Ajouter le code au rails_helper.rb
 after_bundle do
