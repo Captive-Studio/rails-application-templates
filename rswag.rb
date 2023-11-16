@@ -26,9 +26,11 @@ generate "rswag:api:install"
 generate "rswag:ui:install"
 system("RAILS_ENV=test rails g rswag:specs:install")
 
-# Définir les routes pour la documentation
-route "mount Rswag::Ui::Engine => '/api-docs'"
-route "mount Rswag::Api::Engine => '/api-docs'"
+unless File.read("config/routes.rb").include?("mount Rswag::")
+  # Définir les routes pour la documentation
+  route "mount Rswag::Ui::Engine => '/api-docs'"
+  route "mount Rswag::Api::Engine => '/api-docs'"
+end
 
 # Ajouter le code au rails_helper.rb
 after_bundle do
@@ -54,3 +56,23 @@ after_bundle do
     RUBY
   end
 end
+
+git add: "."
+git commit: "➕ Ajoute la gem rswag"
+
+run "yarn add husky -D"
+run "yarn add lint-staged -D"
+run "npx husky add .husky/pre-commit \"npx lint-staged\""
+run "git add .husky/pre-commit"
+
+inject_into_file "package.json", after: "\"lint-staged\": {\n" do
+  <<~EOF
+    "spec/requests/**/*_spec.rb": [
+      "SWAGGER_DRY_RUN=0 rails rswag",
+      "git add swagger/**/*"
+    ]
+  EOF
+end
+
+git add: "."
+git commit: "🔧 Configure le pre-commit de documentation"
