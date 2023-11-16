@@ -8,30 +8,39 @@ gems.each do |g|
   end
 
   run "bundle install"
+  BUNDLE_LOCKER_TEMPLATE = "https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/bundle_locker.rb".freeze
+  apply(BUNDLE_LOCKER_TEMPLATE)
 end
 
-inject_into_file "config/environments/development.rb", after: "Rails.application.configure do\n" do
-  <<~RUBY
-    config.after_initialize do
-      Bullet.enable        = true
-      Bullet.alert         = false
-      Bullet.bullet_logger = true
-      Bullet.console       = true
-      Bullet.rails_logger  = true
-      Bullet.add_footer    = true
-    end
-  RUBY
+unless File.read("config/environments/development.rb").include?("Bullet.")
+  inject_into_file "config/environments/development.rb", after: "Rails.application.configure do\n" do
+    <<~RUBY
+      \tconfig.after_initialize do
+        \tBullet.enable        = true
+        \tBullet.alert         = false
+        \tBullet.bullet_logger = true
+        \tBullet.console       = true
+        \tBullet.rails_logger  = true
+        \tBullet.add_footer    = true
+      \tend
+    RUBY
+  end
 end
 
-inject_into_file "config/environments/test.rb", after: "Rails.application.configure do\n" do
-  <<~RUBY
-      config.after_initialize do
-        Bullet.enable        = true
-        Bullet.bullet_logger = true
-        Bullet.raise         = true # raise an error if n+1 query occurs
-        Bullet.add_safelist type: :unused_eager_loading,
-                            class_name: "ActiveStorage::Blob",
-                            association: :variant_records
-      end
-  RUBY
+unless File.read("config/environments/test.rb").include?("Bullet.")
+  inject_into_file "config/environments/test.rb", after: "Rails.application.configure do\n" do
+    <<~RUBY
+      \tconfig.after_initialize do
+        \tBullet.enable        = true
+        \tBullet.bullet_logger = true
+        \tBullet.raise         = true # raise an error if n+1 query occurs
+        \tBullet.add_safelist type: :unused_eager_loading,
+        \t                    class_name: "ActiveStorage::Blob",
+        \t                    association: :variant_records
+      \tend
+    RUBY
+  end
 end
+
+git add: "Gemfile Gemfile.lock config/environments/development.rb config/environments/test.rb"
+git commit: "-m '🔧 Configure Bullet'"
