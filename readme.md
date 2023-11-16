@@ -17,6 +17,7 @@
 | procfile | Configure foreman et un procfile pour déployer sur Scalingo | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/procfile.rb` |
 | rubocop_captive | Configure le rubocop avec la config captive | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/rubocop_captive.rb` |
 | bundle_locker | Configure la gem bundle-locker pour corriger le Gemfile | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/bundle_locker.rb` |
+| bullet | Configure bullet en environnnement de development et test | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/bullet.rb` |
 
 Vous pouvez simplifier l'usage des templates en ajoutant la fonction suivante dans votre fichier ` ~/.zshrc`
 
