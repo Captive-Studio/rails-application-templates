@@ -1,4 +1,4 @@
-gem_name = %w(bundle-locker)
+gem_name = "bundle-locker"
 
 unless File.read("Gemfile").include?(gem_name)
   gem_group :development do
