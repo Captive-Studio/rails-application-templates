@@ -75,4 +75,4 @@ inject_into_file "package.json", after: "\"lint-staged\": {\n" do
 end
 
 git add: "."
-git commit: "🔧 Configure le pre-commit de documentation"
+git commit: "-m '🔧 Configure le pre-commit de documentation'"
