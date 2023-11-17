@@ -37,5 +37,5 @@ create_file "config/initializers/cors.rb", <<~RUBY
 RUBY
 
 # Configure rswag
-RSWAG_TEMPLATE = "https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/rswag.rb".freeze
+RSWAG_TEMPLATE = "https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/rswag.rb".freeze
 apply(RSWAG_TEMPLATE)

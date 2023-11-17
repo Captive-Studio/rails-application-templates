@@ -4,20 +4,20 @@
 
 | name | description  | command  |
 |------|--------------|----------|
-| database_uuid | Active l'extension UUID sur la base de donnée (PostgreSQL) afin de remplacer les ID (bigint) en UUID | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/database_uuid.rb` |
-| validation_telephone | Ajoute une validation sur le telephone | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/validation_telephone.rb` |
-| rswag | Configure rswag | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/rswag.rb` |
-| api | Configure l'api avec rswag | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/api.rb` |
-| sentry | Configure sentry sur l'app | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/sentry.rb` |
-| captive_admin | Configure captive_admin avec devise et active admin | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/captive_admin.rb` |
-| devise | Configure devise| `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/devise.rb` |
-| active_admin | Configure active_admin| `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/active_admin.rb` |
-| guard | Configure guard| `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/guard.rb` |
-| environment | Configure l'application en Français, Anglais, ...| `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/environment.rb` |
-| procfile | Configure foreman et un procfile pour déployer sur Scalingo | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/procfile.rb` |
-| rubocop_captive | Configure le rubocop avec la config captive | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/rubocop_captive.rb` |
-| bundle_locker | Configure la gem bundle-locker pour corriger le Gemfile | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/bundle_locker.rb` |
-| bullet | Configure bullet en environnnement de development et test | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/bullet.rb` |
+| database_uuid | Active l'extension UUID sur la base de donnée (PostgreSQL) afin de remplacer les ID (bigint) en UUID | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/templates/database_uuid.rb` |
+| validation_telephone | Ajoute une validation sur le telephone | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/validation_telephone.rb` |
+| rswag | Configure rswag | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/rswag.rb` |
+| api | Configure l'api avec rswag | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/api.rb` |
+| sentry | Configure sentry sur l'app | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/sentry.rb` |
+| captive_admin | Configure captive_admin avec devise et active admin | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/captive_admin.rb` |
+| devise | Configure devise| `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/devise.rb` |
+| active_admin | Configure active_admin| `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/active_admin.rb` |
+| guard | Configure guard| `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/guard.rb` |
+| environment | Configure l'application en Français, Anglais, ...| `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/environment.rb` |
+| procfile | Configure foreman et un procfile pour déployer sur Scalingo | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/procfile.rb` |
+| rubocop_captive | Configure le rubocop avec la config captive | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/rubocop_captive.rb` |
+| bundle_locker | Configure la gem bundle-locker pour corriger le Gemfile | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/bundle_locker.rb` |
+| bullet | Configure bullet en environnnement de development et test | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/bullet.rb` |
 
 Vous pouvez simplifier l'usage des templates en ajoutant la fonction suivante dans votre fichier ` ~/.zshrc`
 
@@ -29,7 +29,7 @@ run_rails_template() {
   fi
 
   local PARAMETRE1="$1"
-  rails_command="rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/${PARAMETRE1}.rb"
+  rails_command="rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/${PARAMETRE1}.rb"
 
   eval "$rails_command"
 }
@@ -39,7 +39,7 @@ Cela permettra d'utiliser un template de la manière suivante :
 
 ```bash
 $ run_rails_template validation_telephone
-  apply  https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/validation_telephone.rb
+  apply  https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/validation_telephone.rb
 bin/rails aborted! pays par défaut (par exemple, 'FR' pour la France)? 
 ```
 

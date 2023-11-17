@@ -8,7 +8,7 @@ gems.each do |g|
   end
 
   run "bundle install"
-  BUNDLE_LOCKER_TEMPLATE = "https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/bundle_locker.rb".freeze
+  BUNDLE_LOCKER_TEMPLATE = "https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/bundle_locker.rb".freeze
   apply(BUNDLE_LOCKER_TEMPLATE)
 end
 

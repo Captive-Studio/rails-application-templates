@@ -22,6 +22,6 @@ correction_erreur = yes?("Souhaitez-vous lancer la correction d'erreur ? [Y/n]")
 if correction_erreur || correction_erreur.blank?
   run "bundle exec rubocop -A"
 
-  BUNDLE_LOCKER_TEMPLATE = "https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/bundle_locker.rb".freeze
+  BUNDLE_LOCKER_TEMPLATE = "https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/bundle_locker.rb".freeze
   apply(BUNDLE_LOCKER_TEMPLATE)
 end
