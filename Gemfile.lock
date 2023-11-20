@@ -46,7 +46,7 @@ GEM
       parser (>= 3.2.1.0)
     rubocop-capybara (2.18.0)
       rubocop (~> 1.41)
-    rubocop-config-captive (1.9.7)
+    rubocop-config-captive (1.10.0)
       rubocop (~> 1.51.0)
       rubocop-capybara (~> 2.18.0)
       rubocop-factory_bot (~> 2.23.1)
@@ -84,7 +84,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  rubocop-config-captive (~> 1.9.0)
+  rubocop-config-captive (~> 1.10.0)
 
 BUNDLED WITH
    2.4.21
