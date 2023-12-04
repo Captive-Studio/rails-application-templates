@@ -1,5 +1,4 @@
 GEMFILE = 'Gemfile'
-BUNDLE_LOCKER_TEMPLATE = template_url("bundle_locker")
 
 def run_rubocop
   run "bundle exec rubocop -A"
@@ -8,6 +7,7 @@ end
 def template_url(template)
   "https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/#{template}.rb"
 end
+BUNDLE_LOCKER_TEMPLATE = template_url("bundle_locker")
 
 def add_gems(gems_name, group: nil)
   gems_name.each do |gem_name|
