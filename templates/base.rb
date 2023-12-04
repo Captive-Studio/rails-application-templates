@@ -1,8 +1,12 @@
 GEMFILE = 'Gemfile'
-BUNDLE_LOCKER_TEMPLATE = "https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/bundle_locker.rb".freeze
+BUNDLE_LOCKER_TEMPLATE = template_url("bundle_locker")
 
 def run_rubocop
   run "bundle exec rubocop -A"
+end
+
+def template_url(template)
+  "https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/#{template}.rb"
 end
 
 def add_gems(gems_name, group: nil)
@@ -42,7 +46,7 @@ def group_exist?(group)
 end
 
 def group_string(group)
-  "group :#{group.join(', :')} do"
+  "group :#{group.join(', :')} do\n"
 end
 
 def add_group_if_exist(group)
