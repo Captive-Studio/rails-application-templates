@@ -1,14 +1,7 @@
-gems = %w(guard-rspec guard-rubocop)
+BASE_TEMPLATE = "https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/base.rb".freeze
+apply(BASE_TEMPLATE)
 
-gem_group :development do
-  gems.each do |g|
-    unless File.read("Gemfile").include?(g)
-      gem g
-    end
-  end
-end
-
-run "bundle install"
+add_gems(%w(guard-rspec guard-rubocop), group: :development)
 
 run "bundle exec guard init"
 
