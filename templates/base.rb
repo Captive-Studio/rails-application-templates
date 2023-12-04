@@ -1,4 +1,5 @@
 GEMFILE = 'Gemfile'
+BUNDLE_LOCKER_TEMPLATE = "https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/bundle_locker.rb".freeze
 
 def run_rubocop
   run "bundle exec rubocop -A"
@@ -33,7 +34,6 @@ end
 
 def install_gem
   run "bundle install"
-  BUNDLE_LOCKER_TEMPLATE = "https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/bundle_locker.rb".freeze
   apply(BUNDLE_LOCKER_TEMPLATE)
 end
 
