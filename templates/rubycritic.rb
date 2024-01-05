@@ -8,9 +8,6 @@ end
 
 run "bundle install"
 
-BUNDLE_LOCKER_TEMPLATE = "https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/bundle_locker.rb".freeze
-apply(BUNDLE_LOCKER_TEMPLATE)
-
 # Configuration de RubyCritic
 ruby_critic_config = <<~YAML
   mode_ci:
