@@ -18,6 +18,7 @@
 | rubocop_captive | Configure le rubocop avec la config captive | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/rubocop_captive.rb` |
 | bundle_locker | Configure la gem bundle-locker pour corriger le Gemfile | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/bundle_locker.rb` |
 | bullet | Configure bullet en environnnement de development et test | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/bullet.rb` |
+| formtastic | Configure formtastic | `rails app:template LOCATION=https://raw.githubusercontent.com/Captive-Studio/rails-application-templates/main/templates/formtastic.rb` |
 
 Vous pouvez simplifier l'usage des templates en ajoutant la fonction suivante dans votre fichier ` ~/.zshrc`
 
