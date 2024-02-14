@@ -23,6 +23,25 @@ after_bundle do
       config.enabled_environments = %w(staging production)
 
       config.traces_sample_rate = ENV.fetch("SENTRY_TRACES_RATE", 0.1).to_f
+
+      # Liste des exceptions qui ne doivent pas être envoyé à Sentry
+      # Afin d'éviter d'utiliser le quota inutilement
+      EXCLUDED_EXCEPTIONS = [
+        RedisClient::CannotConnectError,
+        RedisClient::ReadTimeoutError,
+        ActiveRecord::ConnectionNotEstablished,
+        PG::ConnectionBad,
+        OpenSSL::SSL::SSLError,
+      ].freeze
+      config.before_send =
+        lambda do |event, hint|
+          # note: hint[:exception] would be a String if you use async callback
+          if EXCLUDED_EXCEPTIONS.member? hint[:exception]&.class
+            nil
+          else
+            event
+          end
+        end
     end
   RUBY
 
