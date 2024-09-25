@@ -2,4 +2,4 @@
 
 source "https://rubygems.org"
 
-gem "rubocop-config-captive", "~> 1.11.0"
+gem "rubocop-config-captive", "~> 1.13.0"
